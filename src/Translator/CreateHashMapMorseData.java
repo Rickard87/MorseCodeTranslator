@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class CreateHashMapMorseData {
         Map<Character, String> morse = new HashMap<>();
-        Map<String, Character> english = new HashMap<>();
+        Map<String, Character> characters = new HashMap<>();
         public CreateHashMapMorseData()
         {
                 FillMorseHashMap();
@@ -17,7 +17,7 @@ public class CreateHashMapMorseData {
         }
         public Character GetCharacter(String str)
         {
-                return english.get(str);
+                return characters.get(str);
         }
         public void FillMorseHashMap()
         {
@@ -62,8 +62,9 @@ public class CreateHashMapMorseData {
                 morse.put(',', "--..--");
                 morse.put('?', "..--..");
 
-                //Så länge alla värden är unika
-                english =
+                //As long as all values are unique
+                //Inverse Map
+                characters =
                         morse.entrySet()
                         .stream()
                         .collect(Collectors.toMap(Map.Entry::getValue, Map.Entry::getKey));

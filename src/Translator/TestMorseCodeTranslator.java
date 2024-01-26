@@ -14,4 +14,20 @@ public class TestMorseCodeTranslator {
         String Actual = transOutput.CheckType();
         Assert.assertEquals(Expected,Actual);
     }
+    @Test
+    public void TranslateToMorse()
+    {
+        CreateHashMapMorseData hashMaps = new CreateHashMapMorseData();
+        String Actual = hashMaps.GetMorse('g');
+        String Expected = "--.";
+        Assert.assertEquals(Expected, Actual);
+    }
+    @Test
+    public void TranslateToCharacter()
+    {
+        CreateHashMapMorseData hasMaps = new CreateHashMapMorseData();
+        char Actual = hasMaps.GetCharacter("--.");
+        char Expected = 'g';
+        Assert.assertEquals(Expected, Actual);
+    }
 }
