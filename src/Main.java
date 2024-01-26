@@ -5,10 +5,6 @@ import Translator.CreateHashMapMorseData;
 public class Main {
     public static void main(String[] args)
     {
-        CreateHashMapMorseData crhsmmd = new CreateHashMapMorseData();
-        String str = crhsmmd.GetMorse('a');
-        System.out.println(str);
-        char ch = crhsmmd.GetCharacter("--.");
-        System.out.println(ch);
+
     }
 }
