@@ -23,11 +23,17 @@ public class TestMorseCodeTranslator {
         Assert.assertEquals(Expected, Actual);
     }
     @Test
-    public void TranslateToCharacter()
-    {
+    public void TranslateToCharacter() {
         CreateHashMapMorseData hasMaps = new CreateHashMapMorseData();
         char Actual = hasMaps.GetCharacter("--.");
         char Expected = 'g';
         Assert.assertEquals(Expected, Actual);
+    }
+    @Test
+    public void CheckForStopInput()
+    {
+        InputText inputText = new InputText();
+        Assert.assertFalse(inputText.userTypedStop("hElLo"));
+        Assert.assertTrue(inputText.userTypedStop("sToP"));
     }
 }

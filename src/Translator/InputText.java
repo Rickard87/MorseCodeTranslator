@@ -4,23 +4,31 @@ import java.util.Scanner;
 
 public class InputText
 {
-    public String inputString;
-    public boolean isStop;
-    public InputText()
+    public void textReader()
     {
-        Scanner scan = new Scanner(System.in);
-        while (!isStop)
+        String inputString = "";
+        Scanner scanner = new Scanner(System.in);
+        try
         {
-            System.out.println("Enter text");
-            inputString = scan.nextLine();
-
-            if(inputString.equalsIgnoreCase("stop"))
-                isStop = true;
-            else
+            while(!userTypedStop(inputString))
             {
+                inputString = scanner.nextLine();
                 System.out.println(inputString);
             }
         }
+        catch (Exception exception)
+        {
+            System.out.println("Unexpected error");
+        }
+        finally
+        {
+            scanner.close();
+        }
+
     }
 
+    public boolean userTypedStop(String str)
+    {
+        return str.equalsIgnoreCase("stop");
+    }
 }
