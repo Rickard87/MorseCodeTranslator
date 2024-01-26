@@ -1,13 +1,12 @@
 package Translator;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class CreateHashMapMorseData {
-        Map<Character, String> morse = new HashMap<>();
-        Map<String, Character> characters = new HashMap<>();
-        public CreateHashMapMorseData()
+public class HashMap {
+        Map<Character, String> morse = new java.util.HashMap<>();
+        Map<String, Character> characters = new java.util.HashMap<>();
+        public HashMap()
         {
                 FillMorseHashMap();
         }

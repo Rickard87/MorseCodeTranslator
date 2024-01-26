@@ -15,16 +15,25 @@ public class TestMorseCodeTranslator {
         Assert.assertEquals(Expected,Actual);
     }
     @Test
+    public void ContainsOnlyMorse()
+    {
+        String inputString = "*.*....*...";
+        CheckInput transOutput = new CheckInput(inputString);
+        String Expected = "onlyMorse";
+        String Actual = transOutput.CheckType();
+        Assert.assertEquals(Expected, Actual);
+    }
+    @Test
     public void TranslateToMorse()
     {
-        CreateHashMapMorseData hashMaps = new CreateHashMapMorseData();
+        HashMap hashMaps = new HashMap();
         String Actual = hashMaps.GetMorse('g');
         String Expected = "--.";
         Assert.assertEquals(Expected, Actual);
     }
     @Test
     public void TranslateToCharacter() {
-        CreateHashMapMorseData hasMaps = new CreateHashMapMorseData();
+        HashMap hasMaps = new HashMap();
         char Actual = hasMaps.GetCharacter("--.");
         char Expected = 'g';
         Assert.assertEquals(Expected, Actual);

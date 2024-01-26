@@ -13,6 +13,10 @@ public class CheckInput {
         {
             type = "onlyLetters";
         }
+        else if (IsMorse(input))
+        {
+            type = "onlyMorse";
+        }
         else
         {
             type = "error";
@@ -28,6 +32,22 @@ public class CheckInput {
             for (int i = 0; i < input.length(); i++)
             {
                 if(!Character.isLetter(input.charAt(i)))
+                    return false;
+            }
+        }
+        return true;
+    }
+    public Boolean IsMorse(String input)
+    {
+        if(input == null)
+            return false;
+        else
+        {
+            char character;
+            for (int i = 0; i < input.length(); i++)
+            {
+                character = input.charAt(i);
+                if(character != '.' && character != '*')
                     return false;
             }
         }

@@ -7,5 +7,8 @@ public class Main {
     {
        InputText input = new InputText();
        input.textReader();
+
+       //Use this website to check result (CTRL + Click)
+        //https://morsecode.world/international/translator.html
     }
 }
