@@ -17,9 +17,18 @@ public class TestMorseCodeTranslator {
     @Test
     public void ContainsOnlyMorse()
     {
-        String inputString = "*.*....*...";
+        String inputString = "-.-....-...";
         CheckInput transOutput = new CheckInput(inputString);
         String Expected = "onlyMorse";
+        String Actual = transOutput.CheckType();
+        Assert.assertEquals(Expected, Actual);
+    }
+    @Test
+    public void ContainsMixedMorseAndLetters()
+    {
+        String inputString = "-.Aa";
+        CheckInput transOutput = new CheckInput(inputString);
+        String Expected = "morseAndLetters";
         String Actual = transOutput.CheckType();
         Assert.assertEquals(Expected, Actual);
     }
