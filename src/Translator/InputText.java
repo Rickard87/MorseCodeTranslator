@@ -17,18 +17,42 @@ public class InputText
                 System.out.println("Type 'stop' to stop the program");
                 System.out.println("Type morse or characters:");
                 inputString = scanner.nextLine();
+                CheckInput checkInput = new CheckInput(inputString);
+                String checkInputType = checkInput.CheckType();
                 char[] inputToChar = MakeChar(inputString);
-                for (int i = 0; i < inputToChar.length; i++)
+                switch (checkInputType)
                 {
-                    if(inputToChar[i] == ' ')
-                        System.out.print("/ ");
-                    else
-                        System.out.print(hashMap.GetMorse(inputToChar[i])
-                    + " ");
+                    case "onlyLetters":
+                        for (int i = 0; i < inputToChar.length; i++)
+                        {
+                            if(inputToChar[i] == ' ')
+                                System.out.print("/ ");
+                            else
+                                System.out.print(hashMap.GetMorse(inputToChar[i])
+                                        + " ");
+                        }
+                        break;
+                    case "onlyMorse":
+                        String[] separatedMorseWords = inputString.split("/");
+                        for(String morseWord : separatedMorseWords)
+                        {
+                            String[] separatedMorseLetters = morseWord.split(" ");
+                            for(String morseLetter : separatedMorseLetters)
+                            {
+                                if(!morseLetter.equals(" ") && !morseLetter.isEmpty())
+                                    System.out.print(hashMap.GetCharacter(morseLetter));
+                            }
+                            System.out.print(" ");
+                        }
+                        break;
+                    case "morseAndLetters":
+                        break;
                 }
+
                 System.out.println();
             }
         }
+        //Vi vill aldrig göra exceptions på saker vi kan hantera /Rickard
         catch (Exception exception)
         {
             System.out.println("Unexpected error");

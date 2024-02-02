@@ -17,6 +17,10 @@ public class CheckInput {
         {
             type = "onlyMorse";
         }
+        else if (IsMixed(input))
+        {
+            type = "morseAndLetters";
+        }
         else
         {
             type = "error";
@@ -31,7 +35,7 @@ public class CheckInput {
         {
             for (int i = 0; i < input.length(); i++)
             {
-                if(!Character.isLetter(input.charAt(i)))
+                if(!Character.isLetter(input.charAt(i)) && !Character.isSpaceChar(input.charAt(i)))
                     return false;
             }
         }
@@ -47,7 +51,23 @@ public class CheckInput {
             for (int i = 0; i < input.length(); i++)
             {
                 character = input.charAt(i);
-                if(character != '.' && character != '*')
+                if(character != '.' && character != '-' && character != '/' && !Character.isSpaceChar(character))
+                    return false;
+            }
+        }
+        return true;
+    }
+    public Boolean IsMixed(String input)
+    {
+        if(input == null)
+            return false;
+        else
+        {
+            char character;
+            for (int i = 0; i < input.length(); i++)
+            {
+                character = input.charAt(i);
+                if(character != '.' && character != '-' && !Character.isLetter(character) && !Character.isSpaceChar(character))
                     return false;
             }
         }
