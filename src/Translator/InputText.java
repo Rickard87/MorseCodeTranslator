@@ -16,7 +16,7 @@ public class InputText
             {
                 System.out.println("Type 'stop' to stop the program");
                 System.out.println("Type morse or characters:");
-                inputString = scanner.nextLine();
+                inputString = scanner.nextLine().toLowerCase();
                 CheckInput checkInput = new CheckInput(inputString);
                 String checkInputType = checkInput.CheckType();
                 char[] inputToChar = MakeChar(inputString);
@@ -46,6 +46,33 @@ public class InputText
                         }
                         break;
                     case "morseAndLetters":
+                        System.out.println("mixed");
+                        String[] separatedWords = inputString.split("[ /]");
+                        for(String word : separatedWords)
+                        {
+                            char[] wordToCharArray = word.toCharArray();
+                            if(Character.isLetter(wordToCharArray[0]))
+                            {
+                                for (int i = 0; i < wordToCharArray.length; i++)
+                                {
+                                    if(inputToChar[i] == ' ')
+                                        System.out.print("/ ");
+                                    else
+                                        System.out.print(hashMap.GetMorse(wordToCharArray[i])
+                                                + " ");
+                                }
+                            }
+                            else if (wordToCharArray[0] == '.' || wordToCharArray[0] == '-')
+                            {
+                                for (int i = 0; i < wordToCharArray.length; i++) {
+
+                                    if (!word.equals("/"))
+                                        System.out.print(hashMap.GetCharacter(word));
+                                }
+
+                                System.out.print(" ");
+                            }
+                        }
                         break;
                 }
 
