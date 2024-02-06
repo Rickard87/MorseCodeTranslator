@@ -29,13 +29,18 @@ public class CheckInput {
     }
     public Boolean IsLetters(String input)
     {
-        if(input == null)
+        if(input == null || (input.length()<2 && input.charAt(0) != '?' && input.charAt(0) != ','))
             return false;
         else
         {
             for (int i = 0; i < input.length(); i++)
             {
-                if(!Character.isLetter(input.charAt(i)) && !Character.isSpaceChar(input.charAt(i)))
+                if(!Character.isLetter(input.charAt(i))
+                        && !Character.isSpaceChar(input.charAt(i))
+                        && !Character.isDigit(input.charAt(i))
+                        && input.charAt(i) != '.'
+                        && input.charAt(i) != ','
+                        && input.charAt(i) != '?')
                     return false;
             }
         }
@@ -51,7 +56,10 @@ public class CheckInput {
             for (int i = 0; i < input.length(); i++)
             {
                 character = input.charAt(i);
-                if(character != '.' && character != '-' && character != '/' && !Character.isSpaceChar(character))
+                if(character != '.'
+                        && character != '-'
+                        && character != '/'
+                        && !Character.isSpaceChar(character))
                     return false;
             }
         }
@@ -67,7 +75,14 @@ public class CheckInput {
             for (int i = 0; i < input.length(); i++)
             {
                 character = input.charAt(i);
-                if(character != '.' && character != '-' && !Character.isLetter(character) && !Character.isSpaceChar(character))
+                if(character != '.'
+                        && character != '-'
+                        && character != '/'
+                        && character != ','
+                        && character != '?'
+                        && !Character.isLetter(character)
+                        && !Character.isSpaceChar(character)
+                        && !Character.isDigit(character))
                     return false;
             }
         }

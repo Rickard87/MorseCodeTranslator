@@ -8,7 +8,7 @@ public class TestMorseCodeTranslator {
     public void ContainsOnlyLetters()
     {
         int i = 555;
-        String inputString = "this is a test" + i;
+        String inputString = "this is a test" + i + "/-";
         CheckInput transOutput = new CheckInput(inputString);
         String Expected = "error";
         String Actual = transOutput.CheckType();
@@ -50,8 +50,8 @@ public class TestMorseCodeTranslator {
     @Test
     public void CheckForStopInput()
     {
-        InputText inputText = new InputText();
-        Assert.assertFalse(inputText.userTypedStop("hElLo"));
-        Assert.assertTrue(inputText.userTypedStop("sToP"));
+        InputOutputText inputOutputText = new InputOutputText();
+        Assert.assertFalse(inputOutputText.userTypedStop("hElLo"));
+        Assert.assertTrue(inputOutputText.userTypedStop("sToP"));
     }
 }
