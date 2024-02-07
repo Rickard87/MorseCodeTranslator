@@ -8,9 +8,9 @@ public class TestMorseCodeTranslator {
     public void ContainsOnlyLetters()
     {
         int i = 555;
-        String inputString = "this is a test" + i + "/-";
+        String inputString = "this is a test...?" + i;
         CheckInput transOutput = new CheckInput(inputString);
-        String Expected = "error";
+        String Expected = "onlyLetters";
         String Actual = transOutput.CheckType();
         Assert.assertEquals(Expected,Actual);
     }
@@ -26,11 +26,21 @@ public class TestMorseCodeTranslator {
     @Test
     public void ContainsMixedMorseAndLetters()
     {
-        String inputString = "-.Aa";
+        String inputString = "-.Aa/";
         CheckInput transOutput = new CheckInput(inputString);
         String Expected = "morseAndLetters";
         String Actual = transOutput.CheckType();
         Assert.assertEquals(Expected, Actual);
+    }
+    @Test
+    public void DoesNotContainMorseOrLetters()
+    {
+        int i = 555;
+        String inputString = "this is a test" + i + "/ !";
+        CheckInput transOutput = new CheckInput(inputString);
+        String Expected = "error";
+        String Actual = transOutput.CheckType();
+        Assert.assertEquals(Expected,Actual);
     }
     @Test
     public void TranslateToMorse()
