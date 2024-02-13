@@ -74,7 +74,39 @@ public class InputOutputText
                 }
                 break;
             case "morseAndLetters":
-                System.out.println("You have mixed characters in your entry. Please input either characters or morse only.");
+                String[] separatedWord = input.split(" ");
+
+                for (int i = 0; i < separatedWord.length; i++)
+                {
+                    if(checkInput.IsLetters(separatedWord[i]))
+                    {
+                        char[] separatedWordToChar = MakeChar(separatedWord[i]);
+                        for (int j = 0; j < separatedWordToChar.length; j++)
+                        {
+                            System.out.print(hashMap.GetMorse(separatedWordToChar[j]));
+                            System.out.print(" ");
+                        }
+                        System.out.print("/ ");
+                    }
+                    else if(checkInput.IsMorse(separatedWord[i]))
+                    {
+                        if (separatedWord[i].equals("/"))
+                        {
+                            System.out.print(" ");
+                        }
+                        else
+                        {
+                            System.out.print(hashMap.GetCharacter(separatedWord[i]));
+                        }
+                    }
+                    else
+                    {
+                        System.out.println("\nYou have mixed characters in your entry but these cannot be separated. \n" +
+                                "For an accurate translation please separate words with space or '/', or use only morse or English.");
+                    }
+                }
+                //System.out.println("You have mixed characters in your entry. Please input either characters or morse only.");
+
                 break;
             case "error":
                 System.out.println("Your entry does not match anything we can translate. Please try again.");

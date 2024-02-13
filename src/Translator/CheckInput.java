@@ -29,7 +29,7 @@ public class CheckInput {
     }
     public Boolean IsLetters(String input)
     {
-        if(input == null || (input.length() == 1 && input.charAt(0) == '.'))
+        if(input == null || (input.length() == 1 && input.charAt(0) == '.') || (input.replace(".", "").isEmpty()))
             return false;
 
         else
@@ -40,7 +40,6 @@ public class CheckInput {
                         && !Character.isSpaceChar(input.charAt(i))
                         && !Character.isDigit(input.charAt(i))
                         && input.charAt(i) != '.'
-                        && (input.length() == 1 && input.charAt(0) == '.')
                         && input.charAt(i) != ','
                         && input.charAt(i) != '?')
                     return false;
