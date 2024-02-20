@@ -5,51 +5,51 @@ import org.junit.Test;
 
 public class TestMorseCodeTranslator {
     @Test
-    public void ContainsOnlyLetters()
-    {
+    public void ContainsOnlyLetters() {
         int i = 555;
         String inputString = "this is a test...?" + i;
         CheckInput transOutput = new CheckInput(inputString);
         String Expected = "onlyLetters";
         String Actual = transOutput.CheckType();
-        Assert.assertEquals(Expected,Actual);
+        Assert.assertEquals(Expected, Actual);
     }
+
     @Test
-    public void ContainsOnlyMorse()
-    {
+    public void ContainsOnlyMorse() {
         String inputString = "-.-....-...";
         CheckInput transOutput = new CheckInput(inputString);
         String Expected = "onlyMorse";
         String Actual = transOutput.CheckType();
         Assert.assertEquals(Expected, Actual);
     }
+
     @Test
-    public void ContainsMixedMorseAndLetters()
-    {
+    public void ContainsMixedMorseAndLetters() {
         String inputString = "-.Aa/";
         CheckInput transOutput = new CheckInput(inputString);
         String Expected = "morseAndLetters";
         String Actual = transOutput.CheckType();
         Assert.assertEquals(Expected, Actual);
     }
+
     @Test
-    public void DoesNotContainMorseOrLetters()
-    {
+    public void DoesNotContainMorseOrLetters() {
         int i = 555;
         String inputString = "this is a test" + i + "/ !";
         CheckInput transOutput = new CheckInput(inputString);
         String Expected = "error";
         String Actual = transOutput.CheckType();
-        Assert.assertEquals(Expected,Actual);
+        Assert.assertEquals(Expected, Actual);
     }
+
     @Test
-    public void TranslateToMorse()
-    {
+    public void TranslateToMorse() {
         HashMap hashMaps = new HashMap();
         String Actual = hashMaps.GetMorse('g');
         String Expected = "--.";
         Assert.assertEquals(Expected, Actual);
     }
+
     @Test
     public void TranslateToCharacter() {
         HashMap hasMaps = new HashMap();
@@ -57,9 +57,9 @@ public class TestMorseCodeTranslator {
         char Expected = 'g';
         Assert.assertEquals(Expected, Actual);
     }
+
     @Test
-    public void CheckForStopInput()
-    {
+    public void CheckForStopInput() {
         InputOutputText inputOutputText = new InputOutputText();
         Assert.assertFalse(inputOutputText.userTypedStop("hElLo"));
         Assert.assertTrue(inputOutputText.userTypedStop("sToP"));
